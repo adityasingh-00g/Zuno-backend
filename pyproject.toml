@@ -1,0 +1,36 @@
+[project]
+name = "rag-backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "langchain",
+    "langchain-core",
+    "langchain-community",
+    "pypdf",
+    "pymupdf",
+    "langchain-text-splitters",
+    "sentence-transformers",
+    "faiss-cpu",
+    "chromadb",
+    "langchain-groq",
+    "python-dotenv",
+    "typesense",
+    "langchain_openai",
+    "langgraph",
+    "langchain_nomic",
+    "tiktoken",
+    "langchainhub",
+    "tavily-python",
+    "gpt4all",
+    "fastembed",
+    "beautifulsoup4",
+    "lxml",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "unicorn>=2.1.4",
+    "pypdf2>=3.0.1",
+    "python-multipart>=0.0.21",
+]
