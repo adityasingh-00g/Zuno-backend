@@ -9,8 +9,10 @@ from langchain_community.vectorstores import Chroma
 from app.vectorstore.client import get_vectorstore
 
 class ingestionPipeline:
-    def __init__(self,documents):
+    def __init__(self,documents,user_id):
         self.documents=documents
+        self.user_id=user_id
+        print("Uploading 3\n")
     
     def createDocuments(self,files,file_type):
         for file in files:
@@ -31,15 +33,18 @@ class ingestionPipeline:
 
         for doc in docs:
             cleaned_text = re.sub(pattern, "\n" * max_newlines, doc.page_content)
+            metaData=doc.metadata
+            metaData["user_id"]=self.user_id
             cleaned_docs.append(
                 Document(
                     page_content=cleaned_text,
-                    metadata=doc.metadata
+                    metadata=metaData
                 )
             )
         return cleaned_docs
     
     def pipeline(self):
+        print("Uploading 4\n")
         cleaned_docs=self.normalize_newlines(self.documents,max_newlines=2)
         text_splitter=RecursiveCharacterTextSplitter.from_tiktoken_encoder(
             chunk_size=512,

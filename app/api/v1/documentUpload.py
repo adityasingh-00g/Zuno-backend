@@ -5,6 +5,10 @@ from langchain_core.documents import Document
 import tempfile
 import os
 from app.services.ingestion import ingestionPipeline
+from app.Database.model import  User
+from app.Database.auth import get_current_user
+from fastapi import Depends
+
 
 router = APIRouter()
 SUPPORTED_EXTENSIONS = (".pdf", ".txt")
@@ -55,13 +59,16 @@ async def read_file(file: UploadFile) -> list[Document]:
 
 
 @router.post("/documents/upload")
-async def upload_documents(files: list[UploadFile] = File(...)):
+async def upload_documents(
+    files: list[UploadFile] = File(...),
+    user: User = Depends(get_current_user)
+):
     if not files:
         raise HTTPException(status_code=400, detail="No files uploaded")
 
     all_documents = []
     uploaded_files = []
-
+    print("Uploading 1\n")
     try:
         for file in files:
             docs = await read_file(file)
@@ -72,7 +79,8 @@ async def upload_documents(files: list[UploadFile] = File(...)):
             raise HTTPException(status_code=400, detail="No valid content found")
 
         # Run ingestion once for all docs (efficient)
-        ingestion_pipeline = ingestionPipeline(all_documents)
+        ingestion_pipeline = ingestionPipeline(all_documents,user.id)
+        print("Uploading 2\n")
         ingestion_pipeline.pipeline()
 
         return JSONResponse(

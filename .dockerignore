@@ -1,6 +1,0 @@
-__pycache__/
-.env
-.git
-venv/
-node_modules/
-data/vectordb      # DO NOT ship DB in image

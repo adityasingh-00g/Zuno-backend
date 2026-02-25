@@ -20,5 +20,6 @@ def generate(state):
     )
     llm_chain=prompt | llm | StrOutputParser()
     generation=llm_chain.invoke({"question":question,"context":context})
+    print("llm Generated response : ",generation)
     return {"documents":documents,"question":question,"generation":generation}
     

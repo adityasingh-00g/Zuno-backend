@@ -30,4 +30,5 @@ def web_search(state):
     else:
         documents=[web_results]
     
+    print("Web search results : ",documents)
     return {"documents":documents,"question":question}

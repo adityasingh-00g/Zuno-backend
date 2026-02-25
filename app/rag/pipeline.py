@@ -11,6 +11,7 @@ from app.rag.gradeGenerationhallucinationAnswer import grade_hallucination_gener
 
 class GraphState(TypedDict):
     question: str
+    user_id:int
     generation: str
     web_search: str
     documents: List[Document]
@@ -46,7 +47,6 @@ def pipeline(GraphState):
         grade_hallucination_generation_answer,
         {
             "not useful": "websearch",
-            "not supported": "generate",
             "useful": END
         }
     )
