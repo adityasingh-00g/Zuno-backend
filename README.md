@@ -49,6 +49,7 @@ F --> E
 
 E --> G[Hallucination Check]
 
+G --> H[Final Answer Returned to User]
 
 ---
 
@@ -67,5 +68,4 @@ E --> G[Hallucination Check]
 ## Project Structure
 
 
-G --> H[Final Answer Returned to User]
 
