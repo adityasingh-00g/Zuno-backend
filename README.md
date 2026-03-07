@@ -60,7 +60,6 @@ Reranking helps improve:
 - Web search fallback when internal knowledge is insufficient
 - Modular pipeline using LangGraph
 - FastAPI backend for scalable deployment
-- Hybrid Document Retrieval
 
 ---
 
@@ -90,6 +89,7 @@ E --> G[Hallucination Check]
 G --> H[Final Answer Returned to User]
 ```
 ---
+
 
 
 
