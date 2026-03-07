@@ -53,11 +53,14 @@ Reranking helps improve:
 ## Features
 
 - Retrieval-Augmented Generation (RAG)
+- Hybrid Document Retrieval
+- Document Reranking
 - Document relevance grading
 - Hallucination detection
 - Web search fallback when internal knowledge is insufficient
 - Modular pipeline using LangGraph
 - FastAPI backend for scalable deployment
+- Hybrid Document Retrieval
 
 ---
 
@@ -86,19 +89,9 @@ E --> G[Hallucination Check]
 
 G --> H[Final Answer Returned to User]
 ```
-## Workflow
-
-1. User submits a query.
-2. System retrieves relevant documents from the knowledge base.
-3. Retrieved documents are graded for relevance.
-4. If documents are sufficient, the system generates an answer.
-5. If documents are insufficient, the system performs web search.
-6. LLM generates the final response using retrieved context.
-7. Generated answer is checked for hallucinations.
-
 ---
 
-## Project Structure
+
 
 
 
