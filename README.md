@@ -50,7 +50,7 @@ F --> E
 E --> G[Hallucination Check]
 
 G --> H[Final Answer Returned to User]
-
+```
 ## Workflow
 
 1. User submits a query.
@@ -64,6 +64,7 @@ G --> H[Final Answer Returned to User]
 ---
 
 ## Project Structure
+
 
 
 
