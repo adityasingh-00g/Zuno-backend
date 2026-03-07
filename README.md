@@ -14,6 +14,41 @@ The assistant is designed to answer user queries based on **custom documents or 
 - Enterprise document assistants
 
 ---
+## Core Technologies
+
+The system is built using a modern **Retrieval-Augmented Generation (RAG)** architecture.
+
+### Large Language Model
+- **Model:** `llama-3.3-70b-versatile`
+- Used for **reasoning and answer generation** based on retrieved document context.
+
+### Embedding Model
+- **Model:** `BAAI/bge-base-en-v1.5`
+- Converts documents and queries into **vector representations** for semantic search.
+
+### Vector Database
+- **Database:** **ChromaDB**
+- Stores document embeddings and enables **efficient vector similarity retrieval**.
+
+### Retrieval Strategy
+The system uses **Hybrid Retrieval**, which combines:
+
+- **Vector Similarity Search** (semantic understanding)
+- **BM25 Keyword Search** (exact keyword matching)
+
+This hybrid approach improves retrieval performance by capturing both **semantic meaning** and **exact keyword matches**.
+
+### Reranking
+After retrieval, the candidate documents are **reranked** using a **reranking model** to ensure the most relevant documents are placed at the top before being passed to the LLM.
+
+Reranking helps improve:
+
+- Context quality
+- Retrieval precision
+- Final answer accuracy
+
+---
+
 
 ## Features
 
@@ -64,6 +99,7 @@ G --> H[Final Answer Returned to User]
 ---
 
 ## Project Structure
+
 
 
 
